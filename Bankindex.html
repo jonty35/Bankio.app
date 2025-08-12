@@ -5,38 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" type="image/png" href="bankio-icon.png" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-
     <link rel="stylesheet" href="Bankstyle.css" />
     <title>Bankio</title>
   </head>
   <body>
     <!-- TOP NAVIGATION -->
-    <nav>
+    <nav >
       <img src="bankio-logo.png" alt="Logo" class="logo" />
       <div class="transparent-background">
-      <p class="welcome">Sign in</p>
-      <form class="login">
-        <input
-          type="text"
-          placeholder="Email or mobile number"
-          class="login__input login__input--user"
-        />
-        <!-- In practice, use type="password" -->
-        <input
-          type="password"
-          placeholder="password"
-          maxlength="6"
-          class="login__input login__input--pin"
-        />
-        <button class="login__btn">Sign in</button>
-      </form>
+        <p class="welcome">Sign in</p>
+        <form class="login">
+          <input
+            type="text"
+            placeholder="Email or mobile number"
+            class="login__input login__input--user"
+            id="input_user"
+          />
+          <!-- In practice, use type="password" -->
+          <input
+            type="password"
+            placeholder="password"
+            maxlength="6"
+            class="login__input login__input--password"
+            id="input_password"
+          />
+          <button class="login__btn" type="submit">Sign in</button>
+        </form>
       </div>
     </nav>
 
