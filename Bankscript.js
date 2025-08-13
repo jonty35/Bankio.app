@@ -39,7 +39,7 @@ const containerMovements = document.querySelector(".movements");
 
 
 let bankBalance = 0;
-/*
+
 signinbtn.addEventListener("submit", function (event) 
 {
     event.preventDefault();
@@ -52,12 +52,19 @@ signinbtn.addEventListener("submit", function (event)
           if(email === accounts[i].owner && password === accounts[i].password) 
             {
               window.location.href = "bankappindex.html";
-            }
+              displayMovements(accounts[i].movements);
+            } 
+            
         }
 
     
 });
-*/
+
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`;
+};
+
 const displayMovements = function(movements)
   {
     containerMovements.innerHTML = "";
@@ -77,5 +84,5 @@ const displayMovements = function(movements)
 
   }
 
-displayMovements(account1.movements);
+
 document.querySelector(".balance__value").textContent=`${bankBalance}`;
