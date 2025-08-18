@@ -37,52 +37,60 @@ const accounts = [account1, account2, account3, account4];
 const signinbtn = document.querySelector(".login");
 const containerMovements = document.querySelector(".movements");
 
-
 let bankBalance = 0;
 
-signinbtn.addEventListener("submit", function (event) 
-{
-    event.preventDefault();
 
-    const email = document.getElementById("input_user").value;
-    const password = document.getElementById("input_password").value;
+if (signinbtn) {
 
-    for (let i = 0; i < accounts.length; i++)
+  signinbtn.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      const name = document.getElementById("input_user").value;
+      const password = document.getElementById("input_password").value;
+
+        for (let i = 0; i < accounts.length; i++) 
         {
-          if(email === accounts[i].owner && password === accounts[i].password) 
+          if (name === accounts[i].owner && password === accounts[i].password) 
             {
+
+              localStorage.setItem("loggedInUser", JSON.stringify(accounts[i]));
+              localStorage.setItem("log", JSON.stringify(name));
+              localStorage.setItem("pass", JSON.stringify(password));
+
               window.location.href = "bankappindex.html";
-              displayMovements(accounts[i].movements);
-            } 
-            
+
+            }
         }
+  });
+}
 
-    
-});
-
-const calcDisplayBalance = function (acc) {
-  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}€`;
-};
-
-const displayMovements = function(movements)
+if (window.location.pathname.includes("bankappindex.html")) 
   {
-    containerMovements.innerHTML = "";
-      movements.forEach(function(value, index)
-      {
-        bankBalance += value;   
+      document.addEventListener("DOMContentLoaded", () => {
+      const user = JSON.parse(localStorage.getItem("loggedInUser"));
 
-        const type = value > 0 ? "deposit" : "withdrawal";
+        if (user) 
+          {
+            document.querySelector(".balance__label").textContent = `${user.owner}'s Current Balance`;
 
-        const html = ` 
-          <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
-          <div class="movements__value">&#8377 ${value}</div>`;
+            const displayMovements = function (data) 
+            {
+                containerMovements.innerHTML = "";
+                data.movements.forEach(function (value, index) {
+                bankBalance += value;
 
-          containerMovements.insertAdjacentHTML("afterbegin", html);
-      });              
+                const type = value > 0 ? "deposit" : "withdrawal";
 
-  }
+                const html = `<div class="movements__row">
+                              <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
+                              <div class="movements__value">&#8377 ${value}</div>`;
+                              document.querySelector(".balance__value").textContent = `Rs. ${bankBalance} `;
 
-
-document.querySelector(".balance__value").textContent=`${bankBalance}`;
+                              containerMovements.insertAdjacentHTML("afterbegin", html);
+        });
+      };
+                              displayMovements(user);
+    }
+  });
+}
