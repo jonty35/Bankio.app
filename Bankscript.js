@@ -49,9 +49,9 @@ if (signinbtn) {
       const name = document.getElementById("input_user").value;
       const password = document.getElementById("input_password").value;
 
-        for (let i = 0; i < accounts.length; i++) 
-        {
-          if (name === accounts[i].owner && password === accounts[i].password) 
+        accounts.forEach(function(mov){
+              
+           if (name === mov.owner && password === mov.password) 
             {
 
               localStorage.setItem("loggedInUser", JSON.stringify(accounts[i]));
@@ -61,7 +61,7 @@ if (signinbtn) {
               window.location.href = "bankappindex.html";
 
             }
-        }
+        })
   });
 }
 
@@ -77,20 +77,25 @@ if (window.location.pathname.includes("bankappindex.html"))
             const displayMovements = function (data) 
             {
                 containerMovements.innerHTML = "";
+
                 data.movements.forEach(function (value, index) {
-                bankBalance += value;
+              
+                  bankBalance += value;
 
                 const type = value > 0 ? "deposit" : "withdrawal";
 
                 const html = `<div class="movements__row">
-                              <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
+                              <div class="movements__type movements__type--${type}"> ${type}</div>
                               <div class="movements__value">&#8377 ${value}</div>`;
                               document.querySelector(".balance__value").textContent = `Rs. ${bankBalance} `;
 
                               containerMovements.insertAdjacentHTML("afterbegin", html);
+                              
         });
       };
                               displayMovements(user);
     }
   });
 }
+
+
