@@ -33,6 +33,8 @@ nav {
     background: #0000006b;
     padding: 54px;
     border-radius: 38px;
+    z-index: 1;
+    opacity: 1;
 }
 
 .welcome {
@@ -100,10 +102,9 @@ nav {
   grid-template-columns: 4fr 3fr;
   grid-template-rows: auto repeat(3, 15rem) auto;
   gap: 2rem;
-
-  /* NOTE This creates the fade in/out anumation */
-  opacity: 1;
+  opacity: 0;
   transition: all 1s;
+  bottom: 48vh;
 }
 
 .balance {
