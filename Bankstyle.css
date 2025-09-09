@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 * {
   margin: 0;
@@ -12,57 +12,57 @@ html {
 }
 
 body {
-  font-family: 'Sansation:ital', sans-serif;
+  font-family: "Sansation:ital", sans-serif;
   color: #444;
   padding: 2rem;
   background: linear-gradient(45deg, #022cf5, #30b13c80);
   height: 100vh;
 }
 
-nav {  
-    display: grid;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 0 2rem;
+nav {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
 }
 .transparent-background {
-    width: 40rem;
-    height: 40rem;
-    display: ruby;
-    background: #0000006b;
-    padding: 54px;
-    border-radius: 38px;
-    z-index: 1;
-    opacity: 1;
+  width: 40rem;
+  height: 40rem;
+  display: ruby;
+  background: #0000006b;
+  padding: 54px;
+  border-radius: 38px;
+  z-index: 1;
+  opacity: 1;
 }
 
 .welcome {
-    font-size: 4.5rem;
-    font-weight: 500;
-    text-align: left;
-    color: black;
+  font-size: 4.5rem;
+  font-weight: 500;
+  text-align: left;
+  color: black;
 }
 
 .logo {
-    width: 19rem;
+  width: 19rem;
 }
 
 .login {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .login__input {
-    padding: 0.5rem 1rem;
-    font-family: inherit;
-    text-align: center;
-    width: 27rem;
-    height: 5rem;
-    border-radius: 10rem;
-    margin-bottom: 3rem;
-    border: 1px solid #fff;
-    transition: all 0.3s;
-    background: transparent;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  text-align: center;
+  width: 27rem;
+  height: 5rem;
+  border-radius: 10rem;
+  margin-bottom: 2rem;
+  border: 1px solid #fff;
+  transition: all 0.3s;
+  background: transparent;
 }
 
 .login__input:focus {
@@ -74,15 +74,38 @@ nav {
   color: #bbb;
 }
 
+.msg {
+  color: #f35a5a;
+  padding: 4px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: none;
+}
+
+.msg2 {
+  color: #000000;
+  font-size: 1.3rem;
+  padding: 8px;
+  display: none;
+}
+
+.trsmsg {
+  text-align: center;
+  display: none;
+  color: #f35a5a;
+  font-size: 1.3rem;
+  padding: 7px;
+}
+
 .login__btn {
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid white;
-    width: 9rem;
-    border-radius: 15px;
-    padding: 7px;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid white;
+  width: 9rem;
+  border-radius: 15px;
+  padding: 7px;
 }
 
 .login__btn:hover,
